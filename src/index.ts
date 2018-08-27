@@ -54,9 +54,9 @@ const asLevels = (input: string) =>
     .filter(each => each);
 
 const defaultAttributes = {
-  isInhouse: [StagingLevel.Test, StagingLevel.Local, StagingLevel.Alpha],
-  isReal: [StagingLevel.Beta, StagingLevel.RC, StagingLevel.Release],
-  isDebug: [
+  inhouse: [StagingLevel.Test, StagingLevel.Local, StagingLevel.Alpha],
+  real: [StagingLevel.Beta, StagingLevel.RC, StagingLevel.Release],
+  debug: [
     StagingLevel.Test,
     StagingLevel.Local,
     StagingLevel.Alpha,
@@ -74,15 +74,12 @@ const envOrDefaultLevels = (envName: string, defaultLevels: StagingLevel[]) =>
 export const envDefault = $stage({
   value: process.env.STAGE,
   attributes: {
-    isInhouse: envOrDefaultLevels(
+    inhouse: envOrDefaultLevels(
       'STAGE_INHOUSE_LEVELS',
-      defaultAttributes.isInhouse,
+      defaultAttributes.inhouse,
     ),
-    isReal: envOrDefaultLevels('STAGE_REAL_LEVELS', defaultAttributes.isReal),
-    isDebug: envOrDefaultLevels(
-      'STAGE_DEBUG_LEVELS',
-      defaultAttributes.isDebug,
-    ),
+    real: envOrDefaultLevels('STAGE_REAL_LEVELS', defaultAttributes.real),
+    debug: envOrDefaultLevels('STAGE_DEBUG_LEVELS', defaultAttributes.debug),
   },
 });
 
@@ -94,17 +91,17 @@ export const envDefault = $stage({
 export const reactDefault = $stage({
   value: process.env.REACT_APP_STAGE,
   attributes: {
-    isInhouse: envOrDefaultLevels(
+    inhouse: envOrDefaultLevels(
       'REACT_APP_STAGE_INHOUSE_LEVELS',
-      defaultAttributes.isInhouse,
+      defaultAttributes.inhouse,
     ),
-    isReal: envOrDefaultLevels(
+    real: envOrDefaultLevels(
       'REACT_APP_STAGE_REAL_LEVELS',
-      defaultAttributes.isReal,
+      defaultAttributes.real,
     ),
-    isDebug: envOrDefaultLevels(
+    debug: envOrDefaultLevels(
       'REACT_APP_STAGE_DEBUG_LEVELS',
-      defaultAttributes.isDebug,
+      defaultAttributes.debug,
     ),
   },
 });

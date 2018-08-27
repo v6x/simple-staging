@@ -13,11 +13,11 @@ As default, it would read a staging value from `process.env.STAGE` value and giv
 ```typescript
 import { envDefault as currentStage } from 'simple-staging';
 
-if (currentStage.isInhouse) {
+if (currentStage.flags.inhouse) {
   // Some codes for inhouse environment.
 }
 
-if (currentStage.isReal) {
+if (currentStage.flags.real) {
   // Some codes for real environment.
 }
 ```
@@ -25,6 +25,14 @@ if (currentStage.isReal) {
 ### The case of React
 
 In react, it doesn't use `process.env.STAGE` easily because there is no `env` in react environment. But [the useful plugin](https://github.com/tuchk4/react-app-env) captures environment variables that starts with `REACT_APP_` prefix so we can use `process.env.REACT_APP_STAGE` instead of `STAGE`.
+
+### Default flags
+
+| Flags           | Levels                   | nodejs env             | React env                        |
+| --------------- | ------------------------ | ---------------------- | -------------------------------- |
+| `flags.inhouse` | Test, Local, Alpha       | `STAGE_INHOUSE_LEVELS` | `REACT_APP_STAGE_INHOUSE_LEVELS` |
+| `flags.real`    | Beta, RC, Release        | `STAGE_REAL_LEVELS`    | `REACT_APP_STAGE_REAL_LEVELS`    |
+| `flags.debug`   | Test, Local, Alpha, Beta | `STAGE_DEBUG_LEVELS`   | `REACT_APP_STAGE_DEBUG_LEVELS`   |
 
 ### More flags
 
@@ -35,11 +43,11 @@ import { $stage, StagingLevel } from 'simple-staging';
 
 const currentStage = $stage(process.env.STAGE, {
   attributes: {
-    isVerbose: [StagingLevel.LOCAL, StagingLevel.ALPHA],
+    verbose: [StagingLevel.LOCAL, StagingLevel.ALPHA],
   },
 });
 
-if (currentStage.isVerbose) {
+if (currentStage.flags.verbose) {
   // Some codes for verbose environment.
 }
 ```
