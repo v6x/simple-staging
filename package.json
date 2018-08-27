@@ -1,0 +1,33 @@
+{
+  "name": "simple-staging",
+  "version": "0.0.1",
+  "description": "Simple staging helper",
+  "main": "dist/index.js",
+  "repository": "https://github.com/v6x/simple-staging",
+  "author": "VoyagerX",
+  "license": "MIT",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc --project tsconfig.json",
+    "build:watch": "tsc --project tsconfig.json --watch",
+    "test": "jest --config jest.config.js",
+    "test:watch": "jest --config jest.config.js --watch",
+    "deploy": "yarn build && yarn publish"
+  },
+  "devDependencies": {
+    "@types/node": "^10.9.2",
+    "cross-env": "^5.2.0",
+    "prettier": "^1.14.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "ts-enum-util": "^3.1.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
