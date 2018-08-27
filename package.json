@@ -1,6 +1,6 @@
 {
   "name": "simple-staging",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple staging helper",
   "main": "dist/index.js",
   "repository": "https://github.com/v6x/simple-staging",
