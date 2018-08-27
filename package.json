@@ -1,11 +1,22 @@
 {
   "name": "simple-staging",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple staging helper",
   "main": "dist/index.js",
-  "repository": "https://github.com/v6x/simple-staging",
+  "types": "dist/index.d.ts",
   "author": "VoyagerX",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/v6x/simple-staging.git"
+  },
+  "keywords": [
+    "staging"
+  ],
+  "bugs": {
+    "url": "https://github.com/v6x/simple-staging/issues"
+  },
+  "homepage": "https://github.com/v6x/simple-staging#readme",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc --project tsconfig.json",
