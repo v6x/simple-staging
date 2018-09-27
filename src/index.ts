@@ -105,3 +105,26 @@ export const reactDefault = $stage({
     ),
   },
 });
+
+/**
+ * Prepare StagingStatus from electron-webpack-prefix environment variables
+ * such as ELECTRON_WEBPACK_APP_STAGE, ELECTRON_WEBPACK_APP_STAGE_INHOUSE_LEVELS,
+ * ELECTRON_WEBPACK_APP_STAGE_REAL_LEVELS and ELECTRON_WEBPACK_APP_STAGE_DEBUG_LEVELS.
+ */
+export const electronWebpackDefault = $stage({
+  value: process.env.ELECTRON_WEBPACK_APP_STAGE,
+  attributes: {
+    inhouse: envOrDefaultLevels(
+      'ELECTRON_WEBPACK_APP_STAGE_INHOUSE_LEVELS',
+      defaultAttributes.inhouse,
+    ),
+    real: envOrDefaultLevels(
+      'ELECTRON_WEBPACK_APP_STAGE_REAL_LEVELS',
+      defaultAttributes.real,
+    ),
+    debug: envOrDefaultLevels(
+      'ELECTRON_WEBPACK_APP_STAGE_DEBUG_LEVELS',
+      defaultAttributes.debug,
+    ),
+  },
+});
