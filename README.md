@@ -31,7 +31,7 @@ In react, it doesn't use `process.env.STAGE` easily because there is no `env` in
 | Flags           | Levels                   | nodejs env             | React env                        |
 | --------------- | ------------------------ | ---------------------- | -------------------------------- |
 | `flags.inhouse` | Test, Local, Alpha       | `STAGE_INHOUSE_LEVELS` | `REACT_APP_STAGE_INHOUSE_LEVELS` |
-| `flags.real`    | Beta, RC, Release        | `STAGE_REAL_LEVELS`    | `REACT_APP_STAGE_REAL_LEVELS`    |
+| `flags.real`    | Beta, Beta1, Beta2, Beta3, Experimental, UserTest RC, Release        | `STAGE_REAL_LEVELS`    | `REACT_APP_STAGE_REAL_LEVELS`    |
 | `flags.debug`   | Test, Local, Alpha, Beta | `STAGE_DEBUG_LEVELS`   | `REACT_APP_STAGE_DEBUG_LEVELS`   |
 
 ### More flags
@@ -54,14 +54,19 @@ if (currentStage.flags.verbose) {
 
 ## Staging level
 
-It has simple 6 levels.
+It has simple 11 levels.
 
 ```
 enum StagingLevel {
   Test = 'test',
   Local = 'local',
   Alpha = 'alpha',
+  Experimental = 'experimental',
+  UserTest = 'usertest',
   Beta = 'beta',
+  Beta = 'beta1',
+  Beta = 'beta2',
+  Beta = 'beta3',
   RC = 'rc',
   Release = 'release',
 }

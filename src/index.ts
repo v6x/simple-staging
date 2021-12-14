@@ -4,7 +4,12 @@ export enum StagingLevel {
   Test = 'test',
   Local = 'local',
   Alpha = 'alpha',
+  Experimental = 'experimental',
+  UserTest = 'usertest',
   Beta = 'beta',
+  Beta1 = 'beta1',
+  Beta2 = 'beta2',
+  Beta3 = 'beta3',
   RC = 'rc',
   Release = 'release',
 }
@@ -55,12 +60,26 @@ const asLevels = (input: string) =>
 
 const defaultAttributes = {
   inhouse: [StagingLevel.Test, StagingLevel.Local, StagingLevel.Alpha],
-  real: [StagingLevel.Beta, StagingLevel.RC, StagingLevel.Release],
+  real: [
+    StagingLevel.Experimental,
+    StagingLevel.UserTest,
+    StagingLevel.Beta,
+    StagingLevel.Beta1,
+    StagingLevel.Beta2,
+    StagingLevel.Beta3,
+    StagingLevel.RC,
+    StagingLevel.Release,
+  ],
   debug: [
     StagingLevel.Test,
     StagingLevel.Local,
     StagingLevel.Alpha,
     StagingLevel.Beta,
+    StagingLevel.Beta1,
+    StagingLevel.Beta2,
+    StagingLevel.Beta3,
+    StagingLevel.Experimental,
+    StagingLevel.UserTest,
   ],
 };
 
