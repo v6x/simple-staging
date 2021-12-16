@@ -4,7 +4,12 @@ export enum StagingLevel {
   Test = 'test',
   Local = 'local',
   Alpha = 'alpha',
+  Experimental = 'experimental',
+  UserTest = 'usertest',
   Beta = 'beta',
+  Demo1 = 'demo1',
+  Demo2 = 'demo2',
+  Demo3 = 'demo3',
   RC = 'rc',
   Release = 'release',
 }
@@ -55,13 +60,28 @@ const asLevels = (input: string) =>
 
 const defaultAttributes = {
   inhouse: [StagingLevel.Test, StagingLevel.Local, StagingLevel.Alpha],
-  real: [StagingLevel.Beta, StagingLevel.RC, StagingLevel.Release],
+  real: [
+    StagingLevel.Experimental,
+    StagingLevel.UserTest,
+    StagingLevel.Beta,
+    StagingLevel.Demo1,
+    StagingLevel.Demo2,
+    StagingLevel.Demo3,
+    StagingLevel.RC,
+    StagingLevel.Release,
+  ],
   debug: [
     StagingLevel.Test,
     StagingLevel.Local,
     StagingLevel.Alpha,
     StagingLevel.Beta,
+    StagingLevel.Demo1,
+    StagingLevel.Demo2,
+    StagingLevel.Demo3,
+    StagingLevel.Experimental,
+    StagingLevel.UserTest,
   ],
+  demo: [StagingLevel.Demo1, StagingLevel.Demo2, StagingLevel.Demo3],
 };
 
 const envOrDefaultLevels = (envName: string, defaultLevels: StagingLevel[]) =>
@@ -80,6 +100,7 @@ export const envDefault = $stage({
     ),
     real: envOrDefaultLevels('STAGE_REAL_LEVELS', defaultAttributes.real),
     debug: envOrDefaultLevels('STAGE_DEBUG_LEVELS', defaultAttributes.debug),
+    demo: envOrDefaultLevels('STAGE_DEMO_LEVELS', defaultAttributes.demo),
   },
 });
 
@@ -103,6 +124,10 @@ export const reactDefault = $stage({
       'REACT_APP_STAGE_DEBUG_LEVELS',
       defaultAttributes.debug,
     ),
+    demo: envOrDefaultLevels(
+      'REACT_APP_STAGE_DEMO_LEVELS',
+      defaultAttributes.demo,
+    ),
   },
 });
 
@@ -125,6 +150,10 @@ export const electronWebpackDefault = $stage({
     debug: envOrDefaultLevels(
       'ELECTRON_WEBPACK_APP_STAGE_DEBUG_LEVELS',
       defaultAttributes.debug,
+    ),
+    demo: envOrDefaultLevels(
+      'ELECTRON_WEBPACK_APP_STAGE_DEMO_LEVELS',
+      defaultAttributes.demo,
     ),
   },
 });
