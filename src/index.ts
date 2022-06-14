@@ -39,6 +39,7 @@ export enum StagingLevel {
   Demo30 = 'demo30',
   RC = 'rc',
   Release = 'release',
+  Hotfix = 'hotfix',
 }
 
 const stagingLevelEnum = $enum(StagingLevel);
@@ -123,6 +124,7 @@ const defaultAttributes = {
     StagingLevel.Demo30,
     StagingLevel.RC,
     StagingLevel.Release,
+    StagingLevel.Hotfix,
   ],
   debug: [
     StagingLevel.Test,

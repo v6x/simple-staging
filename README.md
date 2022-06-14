@@ -28,11 +28,11 @@ In react, it doesn't use `process.env.STAGE` easily because there is no `env` in
 
 ### Default flags
 
-| Flags           | Levels                                                             | nodejs env             | React env                        |
-| --------------- | ------------------------------------------------------------------ | ---------------------- | -------------------------------- |
-| `flags.inhouse` | Test, Local, Alpha                                                 | `STAGE_INHOUSE_LEVELS` | `REACT_APP_STAGE_INHOUSE_LEVELS` |
-| `flags.real`    | Beta, Demo1, Demo2, Demo3, ..., Experimental, UserTest RC, Release | `STAGE_REAL_LEVELS`    | `REACT_APP_STAGE_REAL_LEVELS`    |
-| `flags.debug`   | Test, Local, Alpha, Beta                                           | `STAGE_DEBUG_LEVELS`   | `REACT_APP_STAGE_DEBUG_LEVELS`   |
+| Flags           | Levels                                                                     | nodejs env             | React env                        |
+| --------------- | -------------------------------------------------------------------------- | ---------------------- | -------------------------------- |
+| `flags.inhouse` | Test, Local, Alpha                                                         | `STAGE_INHOUSE_LEVELS` | `REACT_APP_STAGE_INHOUSE_LEVELS` |
+| `flags.real`    | Beta, Demo1, Demo2, Demo3, ..., Experimental, UserTest RC, Release, Hotfix | `STAGE_REAL_LEVELS`    | `REACT_APP_STAGE_REAL_LEVELS`    |
+| `flags.debug`   | Test, Local, Alpha, Beta                                                   | `STAGE_DEBUG_LEVELS`   | `REACT_APP_STAGE_DEBUG_LEVELS`   |
 
 ### More flags
 
@@ -54,7 +54,7 @@ if (currentStage.flags.verbose) {
 
 ## Staging level
 
-It has simple 11 levels.
+It has simple 39 levels.
 
 ```
 enum StagingLevel {
@@ -68,8 +68,10 @@ enum StagingLevel {
   Demo2 = 'demo2',
   Demo3 = 'demo3',
   ...,
+  Demo30 = 'demo30',
   RC = 'rc',
   Release = 'release',
+  Hotfix = 'hotfix',
 }
 ```
 
