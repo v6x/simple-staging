@@ -246,6 +246,33 @@ export const reactDefault = $stage({
 });
 
 /**
+ * Prepare StagingStatus from vite-prefix environment variables
+ * such as VITE_APP_STAGE, VITE_APP_STAGE_INHOUSE_LEVELS,
+ * VITE_APP_STAGE_REAL_LEVELS and VITE_APP_STAGE_DEBUG_LEVELS.
+ */
+export const viteDefault = $stage({
+  value: process.env.VITE_APP_STAGE,
+  attributes: {
+    inhouse: envOrDefaultLevels(
+      'VITE_APP_STAGE_INHOUSE_LEVELS',
+      defaultAttributes.inhouse,
+    ),
+    real: envOrDefaultLevels(
+      'VITE_APP_STAGE_REAL_LEVELS',
+      defaultAttributes.real,
+    ),
+    debug: envOrDefaultLevels(
+      'VITE_APP_STAGE_DEBUG_LEVELS',
+      defaultAttributes.debug,
+    ),
+    demo: envOrDefaultLevels(
+      'VITE_APP_STAGE_DEMO_LEVELS',
+      defaultAttributes.demo,
+    ),
+  },
+});
+
+/**
  * Prepare StagingStatus from electron-webpack-prefix environment variables
  * such as ELECTRON_WEBPACK_APP_STAGE, ELECTRON_WEBPACK_APP_STAGE_INHOUSE_LEVELS,
  * ELECTRON_WEBPACK_APP_STAGE_REAL_LEVELS and ELECTRON_WEBPACK_APP_STAGE_DEBUG_LEVELS.
