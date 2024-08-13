@@ -1,5 +1,11 @@
 import { $enum } from 'ts-enum-util';
 
+declare global {
+  interface ImportMeta {
+    env?: Record<string, string>;
+  }
+}
+
 export enum StagingLevel {
   Test = 'test',
   Local = 'local',
@@ -199,7 +205,11 @@ const defaultAttributes = {
 };
 
 const envOrDefaultLevels = (envName: string, defaultLevels: StagingLevel[]) =>
-  process.env[envName] ? asLevels(process.env[envName]!) : defaultLevels;
+  process.env[envName]
+    ? asLevels(process.env[envName]!)
+    : import.meta.env?.[envName]
+      ? asLevels(import.meta.env[envName])
+      : defaultLevels;
 
 /**
  * Prepare StagingStatus from environment variables
@@ -251,7 +261,7 @@ export const reactDefault = $stage({
  * VITE_APP_STAGE_REAL_LEVELS and VITE_APP_STAGE_DEBUG_LEVELS.
  */
 export const viteDefault = $stage({
-  value: process.env.VITE_APP_STAGE,
+  value: import.meta.env?.VITE_APP_STAGE,
   attributes: {
     inhouse: envOrDefaultLevels(
       'VITE_APP_STAGE_INHOUSE_LEVELS',

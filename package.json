@@ -26,12 +26,12 @@
     "deploy": "yarn build && yarn publish"
   },
   "devDependencies": {
-    "@types/node": "^10.9.2",
+    "@types/node": "^16",
     "cross-env": "^5.2.0",
     "prettier": "^1.14.2",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.0.1"
+    "typescript": "^5.5.3"
   },
   "dependencies": {
     "ts-enum-util": "^3.1.0"
