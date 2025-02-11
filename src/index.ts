@@ -167,8 +167,6 @@ const defaultAttributes = {
     StagingLevel.Demo28,
     StagingLevel.Demo29,
     StagingLevel.Demo30,
-    StagingLevel.Experimental,
-    StagingLevel.UserTest,
   ],
   demo: [
     StagingLevel.Demo1, 
