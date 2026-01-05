@@ -46,6 +46,8 @@ export enum StagingLevel {
   RC = 'rc',
   Release = 'release',
   Hotfix = 'hotfix',
+  vStory_Dev = 'vstory-dev',
+  vStory_Prod = 'vstory-prod',
 }
 
 const stagingLevelEnum = $enum(StagingLevel);
@@ -131,6 +133,8 @@ const defaultAttributes = {
     StagingLevel.RC,
     StagingLevel.Release,
     StagingLevel.Hotfix,
+    StagingLevel.vStory_Dev,
+    StagingLevel.vStory_Prod,
   ],
   debug: [
     StagingLevel.Test,
@@ -167,6 +171,7 @@ const defaultAttributes = {
     StagingLevel.Demo28,
     StagingLevel.Demo29,
     StagingLevel.Demo30,
+    StagingLevel.vStory_Dev,
   ],
   demo: [
     StagingLevel.Demo1, 
@@ -199,6 +204,10 @@ const defaultAttributes = {
     StagingLevel.Demo28,
     StagingLevel.Demo29,
     StagingLevel.Demo30,
+  ],
+  vStory: [
+    StagingLevel.vStory_Dev,
+    StagingLevel.vStory_Prod,
   ],
 };
 
