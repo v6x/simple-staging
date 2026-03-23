@@ -47,6 +47,8 @@ export enum StagingLevel {
   Release = 'release',
   Hotfix = 'hotfix',
   vStory_Dev = 'vstory-dev',
+  vStory_Dev2 = 'vstory-dev2',
+  vStory_Dev3 = 'vstory-dev3',
   vStory_Prod = 'vstory-prod',
 }
 
@@ -134,6 +136,8 @@ const defaultAttributes = {
     StagingLevel.Release,
     StagingLevel.Hotfix,
     StagingLevel.vStory_Dev,
+    StagingLevel.vStory_Dev2,
+    StagingLevel.vStory_Dev3,
     StagingLevel.vStory_Prod,
   ],
   debug: [
@@ -172,6 +176,8 @@ const defaultAttributes = {
     StagingLevel.Demo29,
     StagingLevel.Demo30,
     StagingLevel.vStory_Dev,
+    StagingLevel.vStory_Dev2,
+    StagingLevel.vStory_Dev3,
   ],
   demo: [
     StagingLevel.Demo1, 
@@ -207,6 +213,8 @@ const defaultAttributes = {
   ],
   vStory: [
     StagingLevel.vStory_Dev,
+    StagingLevel.vStory_Dev2,
+    StagingLevel.vStory_Dev3,
     StagingLevel.vStory_Prod,
   ],
 };
