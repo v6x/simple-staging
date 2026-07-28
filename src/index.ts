@@ -50,7 +50,8 @@ export enum StagingLevel {
   vStory_Dev2 = 'vstory-dev2',
   vStory_Dev3 = 'vstory-dev3',
   vStory_Prod = 'vstory-prod',
-  vFlow_Dev = 'vflow-dev',
+  vFlow_Dev1 = 'vflow-dev1',
+  vFlow_Dev2 = 'vflow-dev2',
   vFlow_Prod = 'vflow-prod',
 }
 
@@ -141,7 +142,8 @@ const defaultAttributes = {
     StagingLevel.vStory_Dev2,
     StagingLevel.vStory_Dev3,
     StagingLevel.vStory_Prod,
-    StagingLevel.vFlow_Dev,
+    StagingLevel.vFlow_Dev1,
+    StagingLevel.vFlow_Dev2,
     StagingLevel.vFlow_Prod,
   ],
   debug: [
@@ -182,7 +184,8 @@ const defaultAttributes = {
     StagingLevel.vStory_Dev,
     StagingLevel.vStory_Dev2,
     StagingLevel.vStory_Dev3,
-    StagingLevel.vFlow_Dev,
+    StagingLevel.vFlow_Dev1,
+    StagingLevel.vFlow_Dev2,
   ],
   demo: [
     StagingLevel.Demo1, 
@@ -223,7 +226,8 @@ const defaultAttributes = {
     StagingLevel.vStory_Prod,
   ],
   vFlow: [
-    StagingLevel.vFlow_Dev,
+    StagingLevel.vFlow_Dev1,
+    StagingLevel.vFlow_Dev2,
     StagingLevel.vFlow_Prod,
   ],
 };
